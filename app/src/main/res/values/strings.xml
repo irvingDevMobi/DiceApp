@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Portfolio App</string>
+
+    <string name="roll">Roll</string>
+    <string name="my_name">Irving Lóp</string>
+    <string name="start_image_description">Start Image</string>
+
+    <string name="biography">
+        Elon Reeve Musk is a South African-born American entrepreneur and businessman who founded X.com in 1999 (which later became PayPal), SpaceX in 2002 and Tesla Motors in 2003. Musk became a multimillionaire in his late 20s when he sold his start-up company, Zip2, to a division of Compaq Computers.
+\n\n
+Musk made headlines in May 2012, when SpaceX launched a rocket that would send the first commercial vehicle to the International Space Station. He bolstered his portfolio with the purchase of SolarCity in 2016, and cemented his standing as a leader of industry by taking on an advisory role in the early days of President Donald Trump\'s administration.
+    </string>
+    <string name="ninkname_hint">What\'s your nickname?</string>
+    <string name="done">Done</string>
+</resources>
