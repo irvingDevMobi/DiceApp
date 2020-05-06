@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dev.irving.portfolioapp.about.AboutScreen
+import dev.irving.portfolioapp.colormyviews.ColorMyViews
 import dev.irving.portfolioapp.diceroller.DiceRollerScreen
 
 class MainActivity : AppCompatActivity() {
@@ -17,7 +18,8 @@ class MainActivity : AppCompatActivity() {
 
         val dataSet = listOf(
             "Dice Roller",
-            "About"
+            "About",
+            "Color My View"
         )
         val adapter = MainAdapter(dataSet)
         recyclerView.adapter = adapter
@@ -25,17 +27,14 @@ class MainActivity : AppCompatActivity() {
 
         adapter.itemListener = object : MainAdapter.ItemListener {
             override fun onClickItemListener(item: String) {
-                when (item) {
-                    dataSet[0] -> startActivity(
-                        Intent(
-                            this@MainActivity, DiceRollerScreen::class.java
-                        )
-                    )
-                    dataSet[1] -> startActivity(
-                        Intent(
-                            this@MainActivity, AboutScreen::class.java
-                        )
-                    )
+                val screenClass = when (item) {
+                    dataSet[0] -> DiceRollerScreen::class.java
+                    dataSet[1] -> AboutScreen::class.java
+                    dataSet[2] -> ColorMyViews::class.java
+                    else -> null
+                }
+                if (screenClass != null) {
+                    startActivity(Intent(this@MainActivity, screenClass))
                 }
             }
         }
