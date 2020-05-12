@@ -5,7 +5,7 @@
     android:id="@+id/container_color_views"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".colormyviews.ColorMyViews">
+    tools:context=".colormyviews.ColorMyViewsScreen">
 
     <TextView
         android:id="@+id/box_one_text"

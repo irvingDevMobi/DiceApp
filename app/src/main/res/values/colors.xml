@@ -7,4 +7,9 @@
     <color name="my_red">#F23</color>
     <color name="my_yellow">#FC3</color>
     <color name="my_green">#2D3</color>
+
+    <!-- Trivia Screens -->
+    <color name="youWinDark">#35A571</color>
+    <color name="youWinBackground">#B7F8C9</color>
+    <color name="gameOverBackground">#f8bbd0</color>
 </resources>

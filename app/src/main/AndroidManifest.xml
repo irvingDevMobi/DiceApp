@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".diceroller.DiceRollerScreen" />
         <activity android:name=".about.AboutScreen" />
-        <activity android:name=".colormyviews.ColorMyViews" />
+        <activity android:name=".colormyviews.ColorMyViewsScreen" />
+        <activity android:name=".trivia.TriviaScreen" />
     </application>
 
 </manifest>

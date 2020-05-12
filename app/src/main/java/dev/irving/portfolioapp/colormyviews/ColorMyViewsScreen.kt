@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import dev.irving.portfolioapp.R
 
-class ColorMyViews : AppCompatActivity() {
+class ColorMyViewsScreen : AppCompatActivity() {
 
     lateinit var box3: TextView
     lateinit var box4: TextView
