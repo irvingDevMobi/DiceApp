@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import dev.irving.portfolioapp.R
 import dev.irving.portfolioapp.databinding.FragmentTitleBinding
 
@@ -20,6 +21,9 @@ class TitleFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(
             layoutInflater, R.layout.fragment_title, container, false
+        )
+        binding.playButton.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment)
         )
         return binding.root
     }
