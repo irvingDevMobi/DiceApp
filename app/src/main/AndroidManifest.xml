@@ -20,6 +20,7 @@
         <activity android:name=".about.AboutScreen" />
         <activity android:name=".colormyviews.ColorMyViewsScreen" />
         <activity android:name=".trivia.TriviaScreen" />
+        <activity android:name=".dessert.DessertScreen" />
     </application>
 
 </manifest>
