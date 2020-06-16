@@ -17,6 +17,8 @@ class DessertScreen : AppCompatActivity(), LifecycleObserver {
     private var revenue = 0
     private var dessertsSold = 0
 
+    private lateinit var timer: DessertTimer
+
     // Contains all the views
     private lateinit var binding: DessertScreenBinding
 
@@ -56,6 +58,8 @@ class DessertScreen : AppCompatActivity(), LifecycleObserver {
         binding.dessertButton.setOnClickListener {
             onDessertClicked()
         }
+
+        timer = DessertTimer(this.lifecycle)
 
         // Set the TextViews to the right values
         binding.revenue = revenue
