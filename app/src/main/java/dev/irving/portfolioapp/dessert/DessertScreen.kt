@@ -61,6 +61,12 @@ class DessertScreen : AppCompatActivity(), LifecycleObserver {
 
         timer = DessertTimer(this.lifecycle)
 
+        if (null != savedInstanceState) {
+            revenue = savedInstanceState.getInt(KEY_REVENUE)
+            dessertsSold = savedInstanceState.getInt(KEY_SOLD)
+            timer.secondsCount = savedInstanceState.getInt(KEY_SECONDS)
+        }
+
         // Set the TextViews to the right values
         binding.revenue = revenue
         binding.amountSold = dessertsSold
@@ -166,5 +172,18 @@ class DessertScreen : AppCompatActivity(), LifecycleObserver {
             R.id.shareMenuButton -> onShare()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(KEY_REVENUE, revenue)
+        outState.putInt(KEY_SOLD, dessertsSold)
+        outState.putInt(KEY_SECONDS, timer.secondsCount)
+    }
+
+    companion object {
+        private const val KEY_REVENUE = "key_revenue"
+        private const val KEY_SOLD = "key_sold"
+        private const val KEY_SECONDS = "key_seconds"
     }
 }
