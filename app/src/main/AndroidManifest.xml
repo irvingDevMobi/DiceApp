@@ -22,6 +22,7 @@
         <activity android:name=".colormyviews.ColorMyViewsScreen" />
         <activity android:name=".trivia.TriviaScreen" />
         <activity android:name=".dessert.DessertScreen" />
+        <activity android:name=".guest.GuestTheWorldActivity" />
     </application>
 
 </manifest>
