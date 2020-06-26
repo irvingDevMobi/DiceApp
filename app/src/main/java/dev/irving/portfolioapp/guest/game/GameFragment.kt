@@ -23,7 +23,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import dev.irving.portfolioapp.R
 import dev.irving.portfolioapp.databinding.GameFragmentBinding
@@ -50,12 +50,19 @@ class GameFragment : Fragment() {
             false
         )
 
-        viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
-        viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
+        viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
+
+        viewModel.score.observe(this, Observer { newScore ->
             binding.scoreText.text = newScore.toString()
         })
-        viewModel.word.observe(viewLifecycleOwner, Observer { newWord ->
+        viewModel.word.observe(this, Observer { newWord ->
             binding.wordText.text = newWord
+        })
+        viewModel.eventGameFinish.observe(this, Observer { isGameFinished ->
+            if (isGameFinished) {
+                viewModel.onGameFinishComplete()
+                gameFinished()
+            }
         })
 
         binding.correctButton.setOnClickListener {
@@ -72,8 +79,9 @@ class GameFragment : Fragment() {
      * Called when the game is finished
      */
     private fun gameFinished() {
+        val newScore = viewModel.score.value ?: 0
         val action = GameFragmentDirections.actionGameToScore()
-        action.score = viewModel.score.value ?: 0
+        action.score = newScore
         findNavController(this).navigate(action)
     }
 }
