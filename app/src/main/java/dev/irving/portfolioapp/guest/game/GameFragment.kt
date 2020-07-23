@@ -17,7 +17,6 @@
 package dev.irving.portfolioapp.guest.game
 
 import android.os.Bundle
-import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,10 +52,6 @@ class GameFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
         binding.lifecycleOwner = this
         binding.gameViewModel = viewModel
-
-        viewModel.currentTime.observe(this, Observer { newTime ->
-            binding.timerText.text = DateUtils.formatElapsedTime(newTime)
-        })
 
         viewModel.eventGameFinish.observe(this, Observer { isGameFinished ->
             if (isGameFinished) {
