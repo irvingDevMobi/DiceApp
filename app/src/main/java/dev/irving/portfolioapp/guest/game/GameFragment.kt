@@ -16,7 +16,11 @@
 
 package dev.irving.portfolioapp.guest.game
 
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,7 +63,7 @@ class GameFragment : Fragment() {
                 gameFinished()
             }
         })
-
+        viewModel.buzzer.observe(this, Observer { buzz(it.pattern) })
         return binding.root
 
     }
@@ -72,5 +76,16 @@ class GameFragment : Fragment() {
         val action = GameFragmentDirections.actionGameToScore()
         action.score = newScore
         findNavController(this).navigate(action)
+    }
+
+    private fun buzz(pattern: LongArray) {
+        val buzzer = activity?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator?
+        buzzer?.let {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                buzzer.vibrate(VibrationEffect.createWaveform(pattern, -1))
+            } else {
+                buzzer.vibrate(pattern, -1)
+            }
+        }
     }
 }
