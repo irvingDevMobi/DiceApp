@@ -10,6 +10,7 @@ import dev.irving.portfolioapp.colormyviews.ColorMyViewsScreen
 import dev.irving.portfolioapp.dessert.DessertScreen
 import dev.irving.portfolioapp.diceroller.DiceRollerScreen
 import dev.irving.portfolioapp.guest.GuestTheWorldActivity
+import dev.irving.portfolioapp.sleep.SleepActivity
 import dev.irving.portfolioapp.trivia.TriviaScreen
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +26,8 @@ class MainActivity : AppCompatActivity() {
             "Color My View",
             "Trivia",
             "Dessert Pusher",
-            "Guess The World"
+            "Guess The World",
+            "Track my Sleep Quality"
         )
         val adapter = MainAdapter(dataSet)
         recyclerView.adapter = adapter
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                     dataSet[3] -> TriviaScreen::class.java
                     dataSet[4] -> DessertScreen::class.java
                     dataSet[5] -> GuestTheWorldActivity::class.java
+                    dataSet[6] -> SleepActivity::class.java
                     else -> null
                 }
                 if (screenClass != null) {
