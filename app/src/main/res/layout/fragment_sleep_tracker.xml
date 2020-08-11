@@ -24,6 +24,10 @@
          click handlers, and state variables. -->
     <data>
 
+        <variable
+            name="sleepTrackerViewModel"
+            type="dev.irving.portfolioapp.sleep.tracker.SleepTrackerViewModel" />
+
     </data>
 
     <!-- Start of the visible fragment layout using ConstraintLayout -->

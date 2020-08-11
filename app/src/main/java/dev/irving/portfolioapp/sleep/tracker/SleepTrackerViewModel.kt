@@ -24,7 +24,8 @@ import dev.irving.portfolioapp.sleep.database.SleepDatabaseDao
  * ViewModel for SleepTrackerFragment.
  */
 class SleepTrackerViewModel(
-        val database: SleepDatabaseDao,
-        application: Application) : AndroidViewModel(application) {
+    val database: SleepDatabaseDao,
+    application: Application
+) : AndroidViewModel(application) {
 }
 
